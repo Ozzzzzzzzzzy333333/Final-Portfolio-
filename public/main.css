@@ -1,0 +1,92 @@
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .hero {
+    height: 130vh;
+    background: linear-gradient(to right, 	#c3b5ff, #e2b9ff);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    transition: transform 0.5s ease-in-out;
+}
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-top: 15px;
+        }
+        .section-link {
+            margin-top: 30px;
+        }
+        .card {
+            transition: transform 0.1s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+
+        }
+        .navbar-brand span {
+            color: #ba78fc;
+            font-weight: bold;
+        }
+
+        .nav-link {
+        transition: color 0.1s ease;
+        }
+
+        .nav-link:hover {
+        color: #ba78fc !important;
+        }
+    
+    .intro-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 20px;
+    background-color: #f8f9fa; /* Light background for contrast */
+    }
+
+.intro-content {
+    display: flex;
+    flex-wrap: wrap; /* Ensures responsiveness */
+    max-width: 1200px;
+    width: 100%;
+    gap: 20px; /* Spacing between the image and text */
+}
+
+.intro-image {
+    width: 300px;
+    height: 300px;
+    background-image: url('/public/Main_me.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.intro-text {
+    flex: 1; /* Makes the text take the remaining space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.intro-text h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333; /* Dark text color */
+}
+
+.intro-text p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #555; /* Softer text color for readability */
+}
