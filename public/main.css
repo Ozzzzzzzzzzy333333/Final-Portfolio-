@@ -62,15 +62,18 @@
 }
 
 .intro-image {
-    width: 300px;
-    height: 300px;
-    background-image: url('/public/Main_me.png');
-    background-size: cover;
-    background-position: center;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 150px; /* Adjust to desired size */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 20px; /* Optional: rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: shadow effect */
 }
 
+.intro-image img {
+    width: 100%; /* Make the image fill the container */
+    height: auto; /* Maintain the image's aspect ratio */
+    border-radius: 10px; /* Match container's border radius */
+    display: block; /* Remove any inline spacing around the image */
+}
 .intro-text {
     flex: 1; /* Makes the text take the remaining space */
     display: flex;
