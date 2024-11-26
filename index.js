@@ -8,6 +8,29 @@ const port = 8000;
 // Tell Express that we want to use EJS as the templating engine
 app.set('view engine', 'ejs');
 
+//Import mysql module
+var mysql = require('mysql2')
+
+var validator = require ('express-validator');
+
+const expressSanitizer = require('express-sanitizer');
+
+// Define the database connection
+const db = mysql.createConnection ({
+    host: 'localhost',
+    user: 'portfolio_app',
+    password: 'qwertyuiop',
+    database: 'portfolio'
+})
+// Connect to the database
+db.connect((err) => {
+    if (err) {
+        throw err
+    }
+    console.log('Connected to database')
+})
+global.db = db
+
 // Set up middleware for parsing and sanitizing
 app.use(express.urlencoded({ extended: true }));
 app.use(require('express-sanitizer')());
