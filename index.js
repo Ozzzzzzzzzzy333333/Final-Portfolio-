@@ -49,6 +49,9 @@ app.use('/', mainRoutes);
 app.get('/', (req, res) => {
     res.render('index'); // Assuming "index.ejs" exists in the "views" folder
 });
+// Load the route handlers for /users
+const usersRoutes = require('./routes/users')
+app.use('/', usersRoutes)
 
 // Start the web app listening
 app.listen(port, () => console.log(`Node app listening on port ${port}!`));

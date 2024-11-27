@@ -28,5 +28,11 @@
             </div>
         </div>
     </nav>
+    <a>Here is a list of projects I have done:</a>
+                    <ul>
+                      <% availableProjects.forEach(function(Projects) { %>
+                        <li><%= Projects.ProjectsId %> <%=Projects.info%> </li>
+                      <% }) %>
+                    </ul>
 </body>
 </html>

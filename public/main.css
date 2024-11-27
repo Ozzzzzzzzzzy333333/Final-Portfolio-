@@ -1,8 +1,8 @@
-        
-        body {
-            font-family: 'Roboto', sans-serif;
-        }
-        .hero {
+body {
+    font-family: 'Roboto', sans-serif;
+}
+/* this is for the purple screen*/
+.hero {
     height: 80vh;
     background: linear-gradient(to right, 	#c59bff, #e3c2fb);
     color: white;
@@ -53,7 +53,7 @@
     border-radius: 5px;         
     cursor: pointer;   
 }        
-
+/* this is for the purple screen input*/
 .hero input[type="submit"]:hover {
     background-color: #0876ec; 
 }
@@ -86,22 +86,22 @@
     align-items: center;
     justify-content: center;
     padding: 50px 20px;
-    background-color: #f8f9fa; /* Light background for contrast */
+    background-color: #f8f9fa; 
     }
 
 .intro-content {
     display: flex;
-    flex-wrap: wrap; /* Ensures responsiveness */
+    flex-wrap: wrap; 
     max-width: 1200px;
     width: 100%;
-    gap: 20px; /* Spacing between the image and text */
+    gap: 20px; 
 }
 
 .intro-image {
-    width: 150px; /* Adjust to desired size */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 20px; /* Optional: rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: shadow effect */
+    width: 150px; 
+    height: auto; 
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
 .intro-image img {
@@ -110,8 +110,10 @@
     border-radius: 10px; /* Match container's border radius */
     display: block; /* Remove any inline spacing around the image */
 }
+
+/* this is for intro texts*/
 .intro-text {
-    flex: 1; /* Makes the text take the remaining space */
+    flex: 1; 
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -121,11 +123,11 @@
 .intro-text h2 {
     font-size: 2rem;
     margin-bottom: 20px;
-    color: #333; /* Dark text color */
+    color: #333; 
 }
 
 .intro-text p {
     font-size: 1.2rem;
     line-height: 1.6;
-    color: #555; /* Softer text color for readability */
+    color: #555; 
 }

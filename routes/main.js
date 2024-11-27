@@ -12,13 +12,20 @@ router.get('/about',function(req, res, next){
     res.render('about.ejs')
 })
 
-router.get('/projects',function(req, res, next){
-    res.render('projects.ejs')
+router.get('/Projects', function(req, res, next) {
+    let sqlquery = "SELECT info FROM project" // query database to get all the projects
+    // execute sql query
+    db.query(sqlquery, (err, result) => {
+        if (err) {
+                        next(err); 
+        }
+        res.render("projects.ejs", {availableProjects:result})
+     })
 })
 
 router.get('/login',function(req, res, next){
     res.render('login.ejs')
-})
+})    
 router.get('/messages',function(req, res, next){
     res.render('messages.ejs')
 })
