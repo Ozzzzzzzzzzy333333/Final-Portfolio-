@@ -40,9 +40,9 @@ router.get('/Login', function(req, res, next) {
 })
 
 router.post('/LoggedIn', function(req, res, next) {
-    req.session.userId = req.body.userN;
-    let sqlquery = "SELECT hashedPassword FROM users WHERE userN = ?" // query database to get all the ussrs
-    db.query(sqlquery, req.body.userN ,(err, result) => {
+    req.session.userId = req.body.userName;
+    let sqlquery = "SELECT hashedPass FROM users WHERE userName = ?" // query database to get all the ussrs
+    db.query(sqlquery, req.body.userName ,(err, result) => {
         if (err) {
             err(next);
         }
@@ -54,7 +54,7 @@ router.post('/LoggedIn', function(req, res, next) {
             console.log(error)
         }
 
-        bcrypt.compare(req.body.pass, hashedPassword, function(err, result) {
+        bcrypt.compare(req.body.hashedpass, hashedPassword, function(err, result) {
             if (err) {
               // TODO: Handle error
               res.render('LoggedIn.ejs', {result: "error"})

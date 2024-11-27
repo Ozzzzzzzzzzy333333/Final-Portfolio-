@@ -30,6 +30,14 @@ router.get('/messages',function(req, res, next){
     res.render('messages.ejs')
 })
 
+router.get('/logout', redirectLogin, (req,res) => {
+    req.session.destroy(err => {
+    if (err) {
+      return res.redirect('./')
+    }
+    res.send('you are now logged out. <a href='+'./'+'>Home</a>');
+    })
+})
 
 
 
