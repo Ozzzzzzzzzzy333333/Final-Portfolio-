@@ -61,6 +61,7 @@ router.get('/messages', global.redirectLogin, function (req, res, next) {
         if (err) {
             return next(err); 
         }
+        console.log(result);
         res.render('messages.ejs', { availableUsers: result });
     });
 });

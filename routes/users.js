@@ -49,22 +49,28 @@ router.post('/LoggedIn', function(req, res, next) {
 
         try {
             console.log(result[0])
-        hashedPassword = result[0].hashedPassword;
+        hashedPassword = result[0].hashedPass;
         } catch (error) {
             console.log(error)
         }
 
-        bcrypt.compare(req.body.hashedpass, hashedPassword, function(err, result) {
+        console.log(req.body.hashedPass)
+        console.log(hashedPassword)
+
+        bcrypt.compare(req.body.hashedPass, hashedPassword, function(err, result) {
             if (err) {
               // TODO: Handle error
+              console.log("err")
               res.render('LoggedIn.ejs', {result: "error"})
             }
             else if (result == true) {
               // TODO: Send message
-              res.render('LoggedIn.ejs', {result: "you have logged in "})
+              console.log("true")
+              res.render('index.ejs', {result: "you have logged in "})
             }
             else {
               // TODO: Send message
+              console.log("else")
               res.render('LoggedIn.ejs', {result: "no "})
             }
           })
