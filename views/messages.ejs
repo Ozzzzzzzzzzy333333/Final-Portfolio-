@@ -41,8 +41,12 @@
                 </li>
             <% }) %>
         </ul>
-            <textarea id="message" name="message" required></textarea>
-            <a href="" class="btn btn-light btn-lg section-link">Send</a>
+        <form method="POST" action="/messages/messageSent">
+            <p>message<input id="message" type="text" name="message" value="" /></p>
+            <p>who is this for:<input id="recieverId" type="text" name="recieverId" value="" /></p>
+            <input id="sendId" type="hidden" name="sendId" value="<%=currentUser%>" />
+            <input type="submit" value="Add message" />
+          </form>
 
     </div>
 </body>

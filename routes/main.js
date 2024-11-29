@@ -56,15 +56,29 @@ router.get('/login',function(req, res, next){
 router.get('/messages', global.redirectLogin, function (req, res, next) {
     const sqlquery = "SELECT * FROM users WHERE userName LIKE ?";
     const searchText = `%${req.query.search_text || ''}%`;
+    const userName = req.session.userId;
 
     db.query(sqlquery, [searchText], (err, result) => {
         if (err) {
             return next(err); 
         }
         console.log(result);
-        res.render('messages.ejs', { availableUsers: result });
+        res.render('messages.ejs', { availableUsers: result, currentUser: userName});
     });
 });
+router.post('/messages/messageSent', function (req, res, next) {
+    // saving data in database
+    let sqlquery = "INSERT INTO messages (sendId, message, recieverId ) VALUES (?,?,?)"
+    // execute sql query
+    let newrecord = [req.body.sendId, req.body.message, req.body.recieverId]
+    db.query(sqlquery, newrecord, (err, result) => {
+        if (err) {
+            next(err)
+        }
+        else
+            res.send(' Your message has been sent')
+    })
+}) 
 
 router.get('/logout', redirectLogin, (req,res) => {
     req.session.destroy(err => {

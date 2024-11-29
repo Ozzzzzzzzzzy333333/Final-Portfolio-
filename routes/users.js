@@ -40,7 +40,7 @@ router.get('/Login', function(req, res, next) {
 })
 
 router.post('/LoggedIn', function(req, res, next) {
-    req.session.userId = req.body.userName;
+    
     let sqlquery = "SELECT hashedPass FROM users WHERE userName = ?" // query database to get all the ussrs
     db.query(sqlquery, req.body.userName ,(err, result) => {
         if (err) {
@@ -66,6 +66,7 @@ router.post('/LoggedIn', function(req, res, next) {
             else if (result == true) {
               // TODO: Send message
               console.log("true")
+              req.session.userId = req.body.userName;
               res.render('index.ejs', {result: "you have logged in "})
             }
             else {

@@ -19,9 +19,9 @@ CREATE TABLE `project`(
 );
 CREATE TABLE `messages` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `sendId` int NOT NULL,
+  `sendId` varchar(255)  NOT NULL,
   `message` varchar(255) NOT NULL,
-  `recieverId` int NOT NULL,
+  `recieverId` varchar(255)  NOT NULL,
   PRIMARY KEY (`id`)
 );
 # Create the app user
