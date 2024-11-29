@@ -53,7 +53,7 @@ router.get('/Projects', function (req, res, next) {
 router.get('/login',function(req, res, next){
     res.render('login.ejs')
 })    
-router.get('/messages',function(req, res, next){
+router.get('/messages', global.redirectLogin, function(req, res, next){
     res.render('messages.ejs')
 })
 router.get('/logout', redirectLogin, (req,res) => {
