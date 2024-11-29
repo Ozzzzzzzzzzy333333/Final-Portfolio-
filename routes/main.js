@@ -53,9 +53,18 @@ router.get('/Projects', function (req, res, next) {
 router.get('/login',function(req, res, next){
     res.render('login.ejs')
 })    
-router.get('/messages', global.redirectLogin, function(req, res, next){
-    res.render('messages.ejs')
-})
+router.get('/messages', global.redirectLogin, function (req, res, next) {
+    const sqlquery = "SELECT * FROM users WHERE userName LIKE ?";
+    const searchText = `%${req.query.search_text || ''}%`;
+
+    db.query(sqlquery, [searchText], (err, result) => {
+        if (err) {
+            return next(err); 
+        }
+        res.render('messages.ejs', { availableUsers: result });
+    });
+});
+
 router.get('/logout', redirectLogin, (req,res) => {
     req.session.destroy(err => {
     if (err) {

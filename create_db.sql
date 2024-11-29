@@ -17,10 +17,12 @@ CREATE TABLE `project`(
     `projectId` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `info` VARCHAR(255) NOT NULL
 );
-CREATE TABLE `messages`(
-    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `userid` INT NOT NULL,
-    `message` VARCHAR(255) NOT NULL
+CREATE TABLE `messages` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `sendId` int NOT NULL,
+  `message` varchar(255) NOT NULL,
+  `recieverId` int NOT NULL,
+  PRIMARY KEY (`id`)
 );
 # Create the app user
 CREATE USER IF NOT EXISTS 'portfolio_app'@'localhost' IDENTIFIED BY 'qwertyuiop'; 

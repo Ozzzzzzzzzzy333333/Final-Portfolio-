@@ -28,5 +28,21 @@
             </div>
         </div>
     </nav>
+    <div class="hero">
+        <form action="messages" method="GET">
+            <p>find a user to send a message to</p>
+            <input id="search_box" type="text" name="search_text">
+            <input type="submit" value="Search" >
+          </form>
+          <ul>
+            <% availableUsers.forEach(function(users) { %>
+              <li><%= users.userName %></li>
+            <% }) %>
+          </ul>
+            <p for="message">send me a message:</p>
+            <textarea id="message" name="message" required></textarea>
+            <a href="" class="btn btn-light btn-lg section-link">Send</a>
+
+    </div>
 </body>
 </html>
