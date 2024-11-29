@@ -34,5 +34,18 @@
                         <li><%= Projects.ProjectsId %> <%=Projects.info%> </li>
                       <% }) %>
                     </ul>
+                    <h2>GitHub Repositories</h2>
+                    <ul>
+                        <% if (githubProjects.length > 0) { %>
+                            <% githubProjects.forEach(repo => { %>
+                                <li>
+                                    <a href="<%= repo.html_url %>" target="_blank"><%= repo.name %></a>
+                                    - <%= repo.description || 'No description available' %>
+                                </li>
+                            <% }) %>
+                        <% } else { %>
+                            <p>No GitHub repositories found.</p>
+                        <% } %>
+                    </ul>
 </body>
 </html>

@@ -17,7 +17,7 @@ router.post('/registered', [check('email').isEmail(), check('hashedPass').isLeng
     const plainPassword = req.body.hashedPass
 
     bcrypt.hash(plainPassword, saltRounds, function (err, hashedPassword) {
-        // Store hashed password in your database.
+        // Store hashed password the data base
         let sqlquery = "INSERT INTO users (userName, email, hashedPass) VALUES (?,?,?)";
         // execute sql query
         let newrecord = [req.body.userName,req.body.email, hashedPassword];
@@ -71,7 +71,7 @@ router.post('/LoggedIn', function(req, res, next) {
       
      })
 }) 
-// Export the router object so index.js can access it
+// Export the router object
 module.exports = router
 
 
