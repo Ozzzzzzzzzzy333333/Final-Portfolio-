@@ -29,6 +29,7 @@
         </div>
     </nav>
     <a>Here is a list of projects I have done / am currently working on:</a>
+    <!-- lists projects from project database -->
                     <ul>
                       <% availableProjects.forEach(function(Projects) { %>
                         <li><%= Projects.ProjectsId %> <%=Projects.info%> </li>
@@ -36,6 +37,7 @@
                     </ul>
                     <h2>GitHub Repositories</h2>
                     <ul>
+                        <!-- displays github projects using API -->
                         <% if (githubProjects.length > 0) { %>
                             <% githubProjects.forEach(repo => { %>
                                 <li>

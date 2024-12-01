@@ -33,6 +33,7 @@
             <input id="search_box" type="text" name="search_text">
             <input type="submit" value="Search" >
           </form>
+          <!-- allows user to serch for other users-->
           <ul>
             <% availableUsers.forEach(function(user) { %>
                 <li>
@@ -40,6 +41,7 @@
                 </li>
             <% }) %>
         </ul>
+        <!-- form to send users messages where will be saved in messages database-->
         <form method="POST" action="/messages/messageSent">
             <p>message<input id="message" type="text" name="message" value="" /></p>
             <p>who is this for:<input id="recieverId" type="text" name="recieverId" value="" /></p>
