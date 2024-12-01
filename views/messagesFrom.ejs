@@ -1,16 +1,15 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oz Gray</title>
+    <title>OZ's Website</title>
     <!-- Bootstrap & CSS -->
     <link rel="stylesheet"  type="text/css" href="/main.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
-<body>
-    
+  <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
         <div class="container">
@@ -21,33 +20,29 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/messagesIncoming">Your messages</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/projects">projects</a></li>
                     <li class="nav-item"><a class="nav-link" href="/login">Login/ Logout</a></li>
                 </ul>
             </div>
         </div>
     </nav>
     <div class="hero">
-        <form action="messages" method="GET">
-            <p>find a user to send a message to</p>
-            <input id="search_box" type="text" name="search_text">
-            <input type="submit" value="Search" >
-          </form>
-          <ul>
-            <% availableUsers.forEach(function(user) { %>
+    <h1>Your messages:</h1>
+    <ul>
+        <% if (availableMessages.length > 0) { %>
+            <% availableMessages.forEach(function(message) { %>
                 <li>
-                    <p for="message">send <%  if(user.userName == null || user.userName == "") {%>'Unknown User'<%} else {%><%=user.userName%><% } %> a message:</p>
+                    <% if (message.sendId === currentUser) { %>
+                        Sent to <%= message.recieverId %>: "<%= message.message %>"
+                    <% } else { %>
+                        Received from <%= message.sendId %>: "<%= message.message %>"
+                    <% } %>
                 </li>
             <% }) %>
-        </ul>
-        <form method="POST" action="/messages/messageSent">
-            <p>message<input id="message" type="text" name="message" value="" /></p>
-            <p>who is this for:<input id="recieverId" type="text" name="recieverId" value="" /></p>
-            <input id="sendId" type="hidden" name="sendId" value="<%=currentUser%>" />
-            <input type="submit" value="Add message" />
-          </form>
+        <% } else { %>
+            <li>No messages found.</li>
+        <% } %>
     </ul>
-
     </div>
-</body>
+    </body>
 </html>

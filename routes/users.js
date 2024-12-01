@@ -4,6 +4,7 @@ const bcrypt = require ("bcrypt");
 const router = express.Router()
 const { check, validationResult } = require('express-validator');
 
+// Handle routes
 router.get('/register', function (req, res, next) {
     res.render('register.ejs')                                                               
 })    
@@ -59,18 +60,18 @@ router.post('/LoggedIn', function(req, res, next) {
 
         bcrypt.compare(req.body.hashedPass, hashedPassword, function(err, result) {
             if (err) {
-              // TODO: Handle error
+              // error
               console.log("err")
               res.render('LoggedIn.ejs', {result: "error"})
             }
             else if (result == true) {
-              // TODO: Send message
+              // if sucsesfull
               console.log("true")
               req.session.userId = req.body.userName;
               res.render('index.ejs', {result: "you have logged in "})
             }
             else {
-              // TODO: Send message
+              // if something else happens
               console.log("else")
               res.render('LoggedIn.ejs', {result: "no "})
             }

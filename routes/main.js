@@ -5,6 +5,7 @@ const request = require('request')
 
 // Handle routes
 router.get('/',function(req, res, next){
+
     res.render('index.ejs')
 })
 router.get('/about',function(req, res, next){
@@ -79,7 +80,17 @@ router.post('/messages/messageSent', function (req, res, next) {
             res.send(' Your message has been sent')
     })
 }) 
-
+router.get('/messagesIncoming', global.redirectLogin, function (req, res, next) {
+    const userName = req.session.userId;
+    const sqlquery = `SELECT * FROM messages WHERE sendId = ? OR recieverId = ? `;
+    db.query(sqlquery, [userName, userName], (err, result) => {
+        if (err) {
+            return next(err); 
+        }
+        console.log(result);
+        res.render('messagesFrom.ejs', { availableMessages: result, currentUser: userName}); 
+    });
+});
 router.get('/logout', redirectLogin, (req,res) => {
     req.session.destroy(err => {
     if (err) {
@@ -88,6 +99,5 @@ router.get('/logout', redirectLogin, (req,res) => {
     res.send('you are now logged out. <a href='+'./'+'>Home</a>');
     })
 })
-
 // export the router object
 module.exports = router
