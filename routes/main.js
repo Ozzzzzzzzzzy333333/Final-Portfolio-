@@ -22,7 +22,7 @@ router.get('/Projects', function (req, res, next) {
 
         // setting usernameand url of  api
         const githubUsername = 'Ozzzzzzzzzzy333333';
-        const url = `https://api.github.com/users/${githubUsername}/pinned`;
+        const url = `https://api.github.com/users/${githubUsername}/repos`;
 
         request(
             {
