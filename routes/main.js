@@ -81,14 +81,15 @@ router.post('/messages/messageSent', function (req, res, next) {
     })
 }) 
 router.get('/messagesIncoming', global.redirectLogin, function (req, res, next) {
+    // this one uses stored procedurals  
     const userName = req.session.userId;
-    const sqlquery = `SELECT * FROM messages WHERE sendId = ? OR recieverId = ? `;
-    db.query(sqlquery, [userName, userName], (err, result) => {
+    const sqlquery = "CALL message_procedure(?)";
+    db.query(sqlquery, [userName], (err, result) => {
         if (err) {
             return next(err); 
         }
-        console.log(result);
-        res.render('messagesFrom.ejs', { availableMessages: result, currentUser: userName}); 
+        console.log(result[0]);
+        res.render('messagesFrom.ejs', { availableMessages: result[0], currentUser: userName}); 
     });
 });
 router.get('/logout', redirectLogin, (req,res) => {

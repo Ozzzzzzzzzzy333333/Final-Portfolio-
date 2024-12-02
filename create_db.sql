@@ -24,6 +24,15 @@ CREATE TABLE `messages` (
   `recieverId` varchar(255)  NOT NULL,
   PRIMARY KEY (`id`)
 );
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `message_procedure`(IN userName VARCHAR(255))
+BEGIN
+    SELECT *
+    FROM messages
+    WHERE sendId = userName OR recieverId = userName;
+
+END
+
 # Create the app user
 CREATE USER IF NOT EXISTS 'portfolio_app'@'localhost' IDENTIFIED BY 'qwertyuiop'; 
 GRANT ALL PRIVILEGES ON portfolio.* TO 'portfolio_app'@'localhost';
