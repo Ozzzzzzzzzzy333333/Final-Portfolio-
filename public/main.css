@@ -70,36 +70,23 @@ body {
     text-align: center;
 }
 
-        .section-link {
-            margin-top: 30px;
-        }
-        .card {
-            transition: transform 0.1s;
-        }
-        .card:hover {
-            transform: scale(1.05);
+.section-link {
+    margin-top: 30px;
+}
+.card { transition: transform 0.1s;}
+.card:hover {transform: scale(1.05);}
 
-        }
-        .navbar-brand span {
-            color: #ba78fc;
-            font-weight: bold;
-        }
-
-        .nav-link {
-        transition: color 0.1s ease;
-        }
-
-        .nav-link:hover {
-        color: #ba78fc !important;
-        }
+/* nav bar*/
+.navbar-brand span {color: #ba78fc; font-weight: bold;}
+.nav-link:hover {color: #ba78fc !important;}
     
-    .intro-section {
+.intro-section {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 50px 20px;
     background-color: #f8f9fa; 
-    }
+}
 
 .intro-content {
     display: flex;
