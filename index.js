@@ -22,7 +22,7 @@ global.redirectLogin = (req, res, next) => {
         next (); 
     } 
 }
-// Tell Express that we want to use EJS as the templating engine
+// Tell Express that to use EJS as the templating engine
 app.set('view engine', 'ejs');
 var mysql = require('mysql2')
 //Import mysql module
@@ -63,11 +63,4 @@ app.use('/users', usersRoutes)
 
 const apiRoutes = require('./routes/api')
 app.use('/api', apiRoutes)
-
-// // Render the index page 
-// app.get('/', (req, res) => {
-//     res.render('index'); 
-// });
-
-
 app.listen(port, () => console.log(`Node app listening on port ${port}!`));

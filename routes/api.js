@@ -3,7 +3,7 @@ const router = express.Router()
 const request = require('request')
 
 router.get('/projects', function (req, res, next) {
-        // Query database to get all the books
+        // Query database to get projects
         let sqlquery = "SELECT * FROM project"
 
         // Execute the sql query
