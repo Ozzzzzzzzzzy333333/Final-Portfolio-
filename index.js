@@ -17,7 +17,7 @@ app.use(session({
 // redirect to the login page
 global.redirectLogin = (req, res, next) => {
     if (!req.session.userId ) {
-      res.redirect('../users/login') 
+      res.redirect('./users/login') 
     } else { 
         next (); 
     } 
