@@ -43,8 +43,10 @@
         </ul>
         <!-- form to send users messages where will be saved in messages database-->
         <form method="POST" action="/messages/messageSent">
-            <p>message<input id="message" type="text" name="message" value="" /></p>
-            <p>who is this for:<input id="recieverId" type="text" name="recieverId" value="" /></p>
+            <p>message</p>
+            <p><input id="message" type="text" name="message" value="" /></p>
+            <p>who is this for:</p>
+            <p><input id="recieverId" type="text" name="recieverId" value="" /></p>
             <input id="sendId" type="hidden" name="sendId" value="<%=currentUser%>" />
             <input type="submit" value="Add message" />
           </form>
