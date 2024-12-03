@@ -55,7 +55,8 @@ router.get('/login',function(req, res, next){
     res.render('login.ejs')
 })    
 router.get('/messages', global.redirectLogin, function (req, res, next) {
-    const sqlquery = "SELECT * FROM users WHERE userName LIKE ?";
+    // calling stored procedrals 
+    const sqlquery = "CALL search_procedure(?)";
     const searchText = `%${req.query.search_text || ''}%`;
     const userName = req.session.userId;
 
@@ -64,7 +65,7 @@ router.get('/messages', global.redirectLogin, function (req, res, next) {
             return next(err); 
         }
         console.log(result);
-        res.render('messages.ejs', { availableUsers: result, currentUser: userName});
+        res.render('messages.ejs', {availableUsers: result[0], currentUser: userName});
     });
 });
 router.post('/messages/messageSent', function (req, res, next) {

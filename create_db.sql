@@ -33,6 +33,11 @@ BEGIN
 
 END
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `search_procedure`(IN search_text VARCHAR(255))
+BEGIN
+	SELECT * FROM users WHERE userName LIKE search_text;
+END
+
 # Create the app user
 CREATE USER IF NOT EXISTS 'portfolio_app'@'localhost' IDENTIFIED BY 'qwertyuiop'; 
 GRANT ALL PRIVILEGES ON portfolio.* TO 'portfolio_app'@'localhost';
