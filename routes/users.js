@@ -68,7 +68,7 @@ router.post('/LoggedIn', function(req, res, next) {
               // if sucsesfull
               console.log("true")
               req.session.userId = req.body.userName;
-              return res.redirect('././');
+              return res.redirect('../');
             }
             else {
               // if something else happens
