@@ -6,7 +6,7 @@ body {
     background: linear-gradient(to right, 	#c59bff, #e3c2fb);
     color: rgb(12, 4, 4);
     display: flex;
-    padding: 20px;
+    padding: 10px;
     position: relative;
     display: flex;            
     flex-direction: column;               
@@ -18,7 +18,7 @@ body {
 }
 
 .hero h1 {
-    margin-bottom: 20px;         
+    margin-bottom: 10px;         
     font-size: 2.5rem;  
     color: #333;               
 }
@@ -37,8 +37,8 @@ body {
 }
 
 .hero input[type="submit"] {
-    margin-top: 20px;             
-    padding: 10px 20px;           
+    margin-top: 10px;             
+    padding: 10px 35px;           
     font-size: 1rem;              
     background-color: #4298f5;  
     color: #f3f1f1;               
@@ -58,7 +58,7 @@ body {
 }
 
 .section-link {
-    margin-top: 30px;
+    margin-top: 35px;
 }
 .card { transition: transform 0.1s;}
 .card:hover {transform: scale(1.05);}
@@ -71,7 +71,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 50px 20px;
+    padding: 55px 30px;
     background-color: #ebf0f5; 
 }
 
@@ -86,8 +86,7 @@ body {
 .intro-image {
     width: 150px; 
     height: auto; 
-    border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    border-radius: 25px;
 }
 
 .intro-image img {
@@ -102,7 +101,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0 20px;
 }
 
 .intro-text h2 {
